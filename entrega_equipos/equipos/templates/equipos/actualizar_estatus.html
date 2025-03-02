@@ -1,0 +1,113 @@
+{% extends 'equipos/base.html' %}
+
+{% load static %}
+
+{% block modificar_equipos_parados %}
+
+
+<div class="container-lg my-5">
+
+<div class="container-lg my-5">
+
+    <div class="row text-center">
+        <div class="col-4"><h4>Modificar estatus</h4></div>
+
+
+        <div class="col-4">
+            
+            
+        
+            {%if semana_en_curso %}
+
+            <h4>Semana: {{ semana_en_curso }}</h4>
+
+            {% else %}
+
+            <h4>No se han cargado datos para la semana en curso</h4>
+
+            {% endif %}
+        
+        
+        
+        
+        
+        </div>
+        
+        <div class="col-4"><h4>Dia: {{dia_actual}}</h4></div>
+    
+    </row>
+
+</div>
+
+<div class="container-lg my-5">
+<div class="table-responsive">
+<table class="table table-bordered table-striped">
+    
+    <thead>
+        <tr>
+            <th>Equipo</th>
+            <th>Actividad</th>
+            <th>Estatus Operaciones</th>
+            <th>Estatus Mantenimiento</th>
+
+            {% if perfil_usuario == "Operaciones" %}
+            <th>Act. Est. Operaciones</th>
+            {% endif %}
+            {% if perfil_usuario == "Mantenimiento" %}
+            <th>Act. Est. Mantenimiento</th>   
+            {% endif %}
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for equipo in equipos_parados %}
+        <tr>
+            <td>
+
+                {% if equipo.equipo %}
+                    {{ equipo.equipo}}
+                {% else %}
+                    N/A
+                {% endif %}
+
+            </td>
+            <td>{{ equipo.texto }}</td>
+            <td>{{ equipo.estatus_operaciones }}</td>
+            <td>{{ equipo.estatus_mantenimiento }}</td>
+
+            {% if perfil_usuario == "Operaciones" %}
+            
+            <td><a href="{% url 'ActualizarEstatusOperaciones' equipo.id %}" class="btn btn-primary">Editar</a></td>
+
+            {% endif %}
+
+            {% if perfil_usuario == "Mantenimiento" %}
+
+
+            <td><a href="{% url 'ActualizarEstatusMantenimiento' equipo.id %}" class="btn btn-primary">Editar</a></td>
+            
+            {% endif %}
+
+            
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No hay trabajos con equipo detenido</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock modificar_equipos_parados %}

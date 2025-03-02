@@ -1,0 +1,26 @@
+
+{% extends 'equipos/base.html' %}
+{% load static %}
+
+{% block login %} 
+
+<div class="container-lg my-5 text-center">
+
+
+    <h2>Iniciar Sesión</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Ingresar</button>
+    </form>
+
+
+</div>
+
+{%endblock login %}
+
+
+
+
+
+

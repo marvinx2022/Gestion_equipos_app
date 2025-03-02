@@ -1,0 +1,18 @@
+{% extends 'equipos/base.html' %}
+{% load static %}
+
+{% block modificar_estatus_operaciones %}
+
+<div class="container-lg my-5 text-center">
+
+        <p>Estás cambiando el estatus de: <strong>{{ instancia.equipo }}</strong></p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{% url 'Actualizar' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+{% endblock%}

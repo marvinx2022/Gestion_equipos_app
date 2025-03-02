@@ -1,0 +1,26 @@
+
+{% extends 'equipos/base.html' %}
+{% load static %}
+
+{% block carga_exitosa %} 
+
+<div class="container-lg my-5 text-center">
+
+
+    <div class="alert alert-success" role="alert">
+       <P> La información se cargó correctamente</P>
+       <P><a href="{% url "Index" %}">Volver al inicio</a></P>
+
+    </div>
+
+
+
+</div>
+
+{%endblock carga_exitosa%}
+
+
+
+
+
+

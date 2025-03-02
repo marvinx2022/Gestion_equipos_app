@@ -1,0 +1,27 @@
+
+{% extends 'equipos/base.html' %}
+
+{% load static %}
+
+{% block carga_datos %}
+
+<div class="container-lg my-5 text-center">
+  <h4>Cargar programación semanal</h4>
+</div>
+
+<div class="container-sm my-5">
+  <div class="col-4 mx-auto">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.as_p }}
+      </div>
+      <button type="submit" class="btn btn-primary btn-rounded px-4 py-2">
+        Cargar datos
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock carga_datos %}
+

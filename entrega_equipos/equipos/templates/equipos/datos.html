@@ -1,0 +1,76 @@
+{% extends 'equipos/base.html' %}
+{% load static %}
+
+{% block lista_general %}
+
+<div class="container-lg my-5">
+    <h4>Consulta de datos - filtrar </h4>
+</div>
+
+<form method="GET">
+    <label for="dia_semana">Día de la semana:</label>
+    <select name="dia_semana" id="dia_semana">
+        <option value="">Seleccione un día</option>
+        {% for d in dia %}
+            <option value="{{ d.dia }}" {% if request.GET.dia_semana == d.dia %}selected{% endif %}>
+                {{ d.dia }}
+            </option>
+        {% endfor %}
+    </select>
+    
+    <label for="especialidad">Especialidad:</label>
+    <select name="especialidad" id="especialidad">
+        <option value="">Seleccione una especialidad</option>
+        {% for e in especialidad %}
+            <option value="{{ e.especialidad }}" {% if request.GET.especialidad == e.especialidad %}selected{% endif %}>
+                {{ e.especialidad }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label for="revision">Revisión:</label>
+    <select name="revision" id="revision">
+        <option value="">Seleccione una revisión</option>
+        {% for r in revision %}
+            <option value="{{ r.revision }}" {% if request.GET.revision == r.revision %}selected{% endif %}>
+                {{ r.revision }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<!-- Tabla de resultados -->
+<div class="container-lg my-5">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Revisión</th>
+                    <th>Día</th>
+                    <th>Equipo</th>
+                    <th>Especialidad</th>
+                    <th>Texto de operación</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                    <tr>
+                        <td>{{ i.revision }}</td>
+                        <td>{{ i.dia }}</td>
+                        <td>{{ i.equipo }}</td>
+                        <td>{{ i.especialidad }}</td>
+                        <td>{{ i.texto }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5">No se encontraron resultados para los filtros seleccionados.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock lista_general %}
