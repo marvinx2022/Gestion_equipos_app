@@ -26,18 +26,4 @@ Generar una Web App que permita generar el registro de los trabajo planificados 
 - La información de los trabajos para cada periodo se carga con un archivo Excel, se usa la librería Pandas para geestion de DataFrame. 
 - Uso de Regex para validar información vs los formatos previamente establecidos. 
 
-## Imágenes del proyecto
 
-
-##
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-
-## Requerimientos
-
-
-## Instalación
-
-Sigue estos pasos para instalar el proyecto:
-1. Clona el repositorio
-2. Instala las dependencias
-3. Ejecuta el proyecto
