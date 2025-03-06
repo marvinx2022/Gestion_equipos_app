@@ -1,4 +1,4 @@
-# App de gestión de entrega de equipos a mantenimiento. 
+# App de gestión de entrega de equipos para mantenimiento. 
 
 Web App desarrollada para gestionar y registrar los trabajos de mantenimiento de equipos, así como el registro de ejecución de trabajos. 
 
@@ -24,6 +24,7 @@ Generar una Web App que permita generar el registro de los trabajo planificados 
 - Permite creación de perfiles de usuario para áreas "Manteniento" y "Operaciones", con diferentes funciones para cada sector. 
 - Permite modificar y registrar las acciones sobre cada trabajo precargado. 
 - La información de los trabajos para cada periodo se carga con un archivo Excel, se usa la librería Pandas para geestion de DataFrame. 
-- Uso de Regex para validar información vs los formatos previamente establecidos. 
+- Uso de Regex para validar información vs los formatos previamente establecidos.
+- Se genera una interfaz responsiva para poder ser visualizada en diferentes dispositivos de manera adecuada.
 
 
