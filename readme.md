@@ -1,3 +1,4 @@
+
 # App de gestión de entrega de equipos para mantenimiento. 
 
 Web App desarrollada para gestionar y registrar los trabajos de mantenimiento de equipos, así como el registro de ejecución de trabajos. 
@@ -30,35 +31,42 @@ Generar una Web App que permita generar el registro de los trabajo planificados 
 ## Algunas capturas de la Web App en ejecución
 
 - Vista restringida sin Login de usuario:
+- 
 ![app1_sin login](https://github.com/user-attachments/assets/48c74559-afe4-42c4-af03-d506c4bf78d0)
 
 
 
 - Acceso de usuario:
+- 
 ![app2_login](https://github.com/user-attachments/assets/cbffcdd0-8e65-412f-aa49-28ec21d98afa)
 
 
 
 - Uso del Admin de Django para gestionar usuarios, creación, asignación de perfiles:
+- 
 ![app3_djangoadmin](https://github.com/user-attachments/assets/b1a25acd-0674-4e94-a9c6-85de471c7a74)
 
 
 
 - Carga de  datos del programa semanal:
+  
 ![app4_carga de datos](https://github.com/user-attachments/assets/273a7bfd-864b-4dbb-8492-35b536fce223)
 
 
 
 - Pantalla de confirmación de carga de datos:
+- 
 ![APP5_DATOS CARGADS](https://github.com/user-attachments/assets/cf02f143-ed06-4686-84f7-66d81aff273b)
 
 
 
 - Filtrado de datos para visualización:
+- 
 ![APP6_FILTRADO DE DATOS](https://github.com/user-attachments/assets/dd6c6c85-9867-4659-abd3-8b5a640050a3)
 
 
 
 - Actualización de estatus, según perfil del usuario:
+- 
 ![app7_actualizar estatus](https://github.com/user-attachments/assets/80ae11fa-96db-444d-a196-f2811929f2d9)
 
