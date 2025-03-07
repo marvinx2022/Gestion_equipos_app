@@ -101,20 +101,20 @@ def carga_exitosa(request):
 
 
 def mostrar_datos_cargados(request):
-    # Obtener todos los datos de la base de datos
+  
     data = Indicador.objects.all()
 
-    # Filtrar los días, especialidades y revisiones distintas para el formulario
+
     dia = data.values('dia').distinct()
     especialidad = data.values('especialidad').distinct()
     revision = data.values('revision').distinct()
 
-    # Recupera los parámetros de la URL
+   
     dia_semana = request.GET.get('dia_semana', '')
     especialidad_param = request.GET.get('especialidad', '')
     revision_param = request.GET.get('revision', '')
 
-    # Aplica los filtros si los parámetros existen
+ 
     if dia_semana:
         data = data.filter(dia=dia_semana)
 
@@ -124,7 +124,7 @@ def mostrar_datos_cargados(request):
     if revision_param:
         data = data.filter(revision=revision_param)
 
-    # Verifica si el usuario está autenticado y asigna el perfil
+   
     if request.user.is_authenticated:
         perfil = request.user.perfil.perfil
     else:
@@ -132,7 +132,7 @@ def mostrar_datos_cargados(request):
     
     perfil_usuario = perfil
 
-    # Pasar el contexto para el template
+    
     context = {
         'revision': revision,
         'dia': dia,
@@ -180,8 +180,9 @@ def equipo_parado(request):
     hoy = date.today().weekday()
     dia_actual=weekdays[hoy]
     
-    equipos_parados = Indicador.objects.filter(equipo_parado=0).filter(dia=dia_actual).filter(revision=semana_en_curso)   # Es este caso si el campo equipo_parado=0 indica que el trabajo requiere entrega del equipo, es por lanaturaleza del sistekma de donde se obtiene la información de ingreso. 
+    equipos_parados = Indicador.objects.filter(equipo_parado=0.0).filter(dia=dia_actual).filter(revision=semana_en_curso)   # Es este caso si el campo equipo_parado=0 indica que el trabajo requiere entrega del equipo, es por lanaturaleza del sistekma de donde se obtiene la información de ingreso. 
     
+    print(equipos_parados)
     
     if request.user.is_authenticated:
         
@@ -238,7 +239,7 @@ def actualizar_estatus_equipos(request):
     
     semana_en_curso = es_semana_actual(lista_semanas)
     
-    equipos_parados = Indicador.objects.filter(equipo_parado=0).filter(dia=dia_actual).filter(revision=semana_en_curso)
+    equipos_parados = Indicador.objects.filter(equipo_parado=0.0).filter(dia=dia_actual).filter(revision=semana_en_curso)
     
     if request.user.is_authenticated:
         
